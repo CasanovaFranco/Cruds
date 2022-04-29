@@ -129,6 +129,7 @@ public class CardController implements Serializable {
 		return view;
 	}
 
+	
 
 	public void selectCard(SelectEvent e) {
 		this.cardSelected = (Card) e.getObject();
@@ -137,6 +138,7 @@ public class CardController implements Serializable {
 	public void resetForm() {
 		card = new Card();
 	}
+	
 
 	public void searchCardByName() {
 		try {
@@ -158,7 +160,7 @@ public class CardController implements Serializable {
 
 	
 	
-	
+
 	public Card getCard() {
 		return card;
 	}

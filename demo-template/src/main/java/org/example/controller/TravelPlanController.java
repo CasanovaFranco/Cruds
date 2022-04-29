@@ -131,18 +131,17 @@ public class TravelPlanController implements Serializable {
 	}
 	
 	
-	
-	
-	
 
 	public void selectTravelPlan(SelectEvent e) {
 		this.travelplanSelected = (TravelPlan) e.getObject();
 
 	}
 
+	
 	public void resetForm() {
 		travelplan = new TravelPlan();
 	}
+	
 
 	public void searchTravelPlanByName() {
 		try {
@@ -154,23 +153,25 @@ public class TravelPlanController implements Serializable {
 
 		} catch (Exception e) {
 			// TODO: handle exception
-
 		}
-
 	}
 
+	
 	public String listTravelPlan() {
 		return "list.xhtml";
 	}
 
+	
 	public TravelPlan getTravelplan() {
 		return travelplan;
 	}
 
+	
 	public void setTravelplan(TravelPlan travelplan) {
 		this.travelplan = travelplan;
 	}
 
+	
 	public List<TravelPlan> getTravelplans() {
 		return travelplans;
 	}
