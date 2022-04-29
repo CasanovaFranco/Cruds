@@ -18,24 +18,33 @@ public class CardBusiness implements Serializable {
 	@Inject
 	private CardRepository cardRepository;
 	
+	
+	
 	@Transactional
 	public Long insert(Card card) throws Exception{
 		return cardRepository.insert(card);
 	}
+	
+	
 	
 	@Transactional
 	public Long update(Card card) throws Exception{
 		return cardRepository.update(card);
 	}
 	
+	
+	
 	@Transactional
 	public void delete(Card card) throws Exception{
 		cardRepository.delete(card);
 	}
 	
+
+	
 	public List<Card> getAll() throws Exception{
 		return cardRepository.findAll();
 	}
+	
 	
 	public List<Card> getCardsByName(String name) throws Exception{
 		return cardRepository.findByName(name);

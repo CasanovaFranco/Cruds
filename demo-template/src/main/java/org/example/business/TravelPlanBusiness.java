@@ -18,15 +18,18 @@ public class TravelPlanBusiness implements Serializable {
 	@Inject
 	private TravelPlanRepository travelPlanRepository;
 
+	
 	@Transactional
 	public Long insert(TravelPlan travelplan) throws Exception {
 		return travelPlanRepository.insert(travelplan);
 	}
 
+	
 	@Transactional
 	public Long update(TravelPlan travelplan) throws Exception {
 		return travelPlanRepository.update(travelplan);
 	}
+	
 
 	@Transactional
 	public void delete(TravelPlan travelplan) throws Exception {
@@ -34,12 +37,14 @@ public class TravelPlanBusiness implements Serializable {
 	}
 	
 	
+
 	
 	public List<TravelPlan> getAll() throws Exception {
 		return travelPlanRepository.findAll();
 
 	}
 
+	
 	public List<TravelPlan> getTravelPlanByName(String name) throws Exception {
 		return travelPlanRepository.findByName(name);
 
