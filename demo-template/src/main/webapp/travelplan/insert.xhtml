@@ -23,10 +23,12 @@
 					</f:facet>
 				</p:toolbar>
 
+
 				<p:panelGrid id="panGridTravelPlan" columns="2" style="width:100%">
 					<p:outputLabel for="txtName" value="Plan de Viaje: " />
 					<p:inputText id="txtName" required="true" maxlength="45"
 						value="#{travelPlanController.travelplan.name}" />
+
 
 					<p:outputLabel for="cboAffiliate" value="Compañia: " />
 					<p:selectOneMenu id="cboAffiliate" required="true"
@@ -37,27 +39,29 @@
 						<f:selectItems value="#{travelPlanController.affiliates}"
 							var="affiliate" itemLabel="#{affiliate.companyname}"
 							itemValue="#{affiliate}" />
-
 					</p:selectOneMenu>
+					
 
 					<p:outputLabel for="txtDescription" value="Descripcion: " />
 					<p:inputText id="txtDescription" required="true" maxlength="45"
 						value="#{travelPlanController.travelplan.description}" />
 
+
 					<p:outputLabel for="txtUniPrice" value="Precio Unitario: " />
 					<p:inputText id="txtUniPrice" required="true" maxlength="45"
 						value="#{travelPlanController.travelplan.unitPrice}" />
 
+
 					<p:outputLabel for="txtStock" value="Stock: " />
 					<p:spinner id="txtStock" required="true" maxlength="45"
 						value="#{travelPlanController.travelplan.untisStock}" />
+
 
 					<p:outputLabel for="txtTime" value="Time: " />
 					<p:inputText id="txtTime" required="true" maxlength="45"
 						value="#{travelPlanController.travelplan.time}" />
 
 				</p:panelGrid>
-
 			</h:form>
 		</ui:define>
 	</ui:composition>

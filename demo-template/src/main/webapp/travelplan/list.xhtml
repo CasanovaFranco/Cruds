@@ -18,12 +18,12 @@
 					<f:facet name="right">
 						<p:commandButton value="Añadir Paquete de viaje" icon="ui-icon-newwin"
 							action="#{travelPlanController.newTravelPlan()}" ajax="false" />
+							
 						<p:commandButton value="Modificar" icon="ui-icon-pencil"
 							action="#{travelPlanController.editTravelPlan()}" ajax="false" />
-					<p:commandButton value="Eliminar" icon="ui-icon-trash"
-			    		action="#{travelPlanController.deletePlanTravel()}"
-			    		ajax="false"
-			    		/>
+							
+						<p:commandButton value="Eliminar" icon="ui-icon-trash"
+			    		action="#{travelPlanController.deletePlanTravel()}" ajax="false"/>
 					
 					</f:facet>
 				</p:toolbar>
@@ -35,28 +35,32 @@
 					rowKey="#{travelplan.id}" selectionMode="single"
 					selection="#{travelPlanController.travelplanSelected}"
 					paginator="true" rows="10">
+					
 					<p:column headerText="Id">
 						<p:outputLabel value="#{travelplan.id}" />
 					</p:column>
+					
 					<p:column headerText="Afiliado">
 						<p:outputLabel value="#{travelplan.affiliate.companyname}" />
 					</p:column>
 
-					<p:column headerText="Name">
+					<p:column headerText="Nombre">
 						<p:outputLabel value="#{travelplan.name}" />
 					</p:column>
-					<p:column headerText="Description">
+					
+					<p:column headerText="Descripcion">
 						<p:outputLabel value="#{travelplan.description}" />
 					</p:column>
-					<p:column headerText="Time">
+					
+					<p:column headerText="Tiempo Estadia">
 						<p:outputLabel value="#{travelplan.time}" />
 					</p:column>
 
-					<p:column headerText="UnitPrice">
+					<p:column headerText="Precio Unitario">
 						<p:outputLabel value="#{travelplan.unitPrice}" />
 					</p:column>
 
-					<p:column headerText="Unitsstock">
+					<p:column headerText="Unidades en Stock">
 						<p:outputLabel value="#{travelplan.untisStock}" />
 					</p:column>
 
