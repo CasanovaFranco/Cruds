@@ -28,10 +28,10 @@
 			    		<p:commandButton value="Eliminar" icon="ui-icon-trash"
 			    		action="#{cardController.deleteCard()}"
 			    		ajax="false"
-			    		/>
-			    	</f:facet>			       
-			    
+			    		/>			    		
+			    	</f:facet>			       			  
 			    </p:toolbar>		    
+			
 			
 			
 				<p:dataTable id="datTabCards"
@@ -41,7 +41,6 @@
 					selection="#{cardController.cardSelected}"
 					paginator="true"
 					rows="10">
-
 
 					<p:column headerText="Id">
 						<p:outputLabel value="#{card.id}" />
@@ -58,7 +57,7 @@
 					<p:column headerText="Precio">
 						<p:outputLabel value="#{card.travelplan.unitPrice}" />
 					</p:column>
-					<p:column headerText="MetodoPago">
+					<p:column headerText="Metodo Pago">
 						<p:outputLabel value="#{card.method}" />
 					</p:column>
 					

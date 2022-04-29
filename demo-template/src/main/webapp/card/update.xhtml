@@ -15,6 +15,7 @@
 				
 				<p:toolbar>
 					<f:facet name="right">
+					
 						<p:commandButton value="Guardar" icon="ui-icon-mail-open" 
 						action="#{cardController.saveCard()}" ajax="false"/>
 						
@@ -22,8 +23,7 @@
 						   action="#{cardController.listCard()}"
 						  immediate="true"
 						  ajax="false"/>
-						  
-						  
+						  						 	  
 					</f:facet>
 				</p:toolbar>
 
@@ -51,8 +51,7 @@
 						value="#{cardController.card.method}"/>
 					
 						
-						<p:outputLabel value="Plan:" for="cboPlanTravel" />
-
+					<p:outputLabel value="Plan:" for="cboPlanTravel" />
 					<p:selectOneMenu id="cboPlanTravel" required="true" effect="drop"
 						value="#{cardController.travelplan}"
 						converter="omnifaces.SelectItemsConverter">
@@ -61,15 +60,13 @@
 						<f:selectItems value="#{cardController.travelplans}"   
 							var="travelplan" itemLabel="#{travelplan.name}"
 							itemValue="#{travelplan}" />
-					</p:selectOneMenu>
-						
-
-				</p:panelGrid>
 				
-				
+					</p:selectOneMenu>						
+				</p:panelGrid>						
 			</h:form>
 		</ui:define>
 	</ui:composition>
+
 
 </body>
 </html>
