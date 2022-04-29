@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+
+	<ui:composition template="/WEB-INF/templates/master.xhtml">
+		<ui:define name="content">
+			<h:form id="frm">
+				<p:growl id="men" />
+
+				<p:toolbar>
+					<f:facet name="right">
+						<p:commandButton value="Añadir Paquete" icon="ui-icon-mail-open"
+							action="#{travelPlanController.saveTravelPlan()}" ajax="false" />
+						<p:commandButton value="Regresar" icon="ui-icon-disk"
+							action="#{travelPlanController.listTravelPlan()}"
+							immediate="true" ajax="false" />
+					</f:facet>
+				</p:toolbar>
+
+				<p:panelGrid id="panGridTravelPlan" columns="2" style="width:100%">
+					<p:outputLabel for="txtName" value="Plan de Viaje: " />
+					<p:inputText id="txtName" required="true" maxlength="45"
+						value="#{travelPlanController.travelplan.name}" />
+
+					<p:outputLabel for="cboAffiliate" value="Compañia: " />
+					<p:selectOneMenu id="cboAffiliate" required="true"
+						value="#{travelPlanController.affiliate}" effect="drop"
+						converter="omnifaces.SelectItemsConverter">
+						<f:selectItem itemLabel="Seleccione una opción"
+							noSelectionOption="true" itemValue="" />
+						<f:selectItems value="#{travelPlanController.affiliates}"
+							var="affiliate" itemLabel="#{affiliate.companyname}"
+							itemValue="#{affiliate}" />
+
+					</p:selectOneMenu>
+
+					<p:outputLabel for="txtDescription" value="Descripcion: " />
+					<p:inputText id="txtDescription" required="true" maxlength="45"
+						value="#{travelPlanController.travelplan.description}" />
+
+					<p:outputLabel for="txtUniPrice" value="Precio Unitario: " />
+					<p:inputText id="txtUniPrice" required="true" maxlength="45"
+						value="#{travelPlanController.travelplan.unitPrice}" />
+
+					<p:outputLabel for="txtStock" value="Stock: " />
+					<p:spinner id="txtStock" required="true" maxlength="45"
+						value="#{travelPlanController.travelplan.untisStock}" />
+
+					<p:outputLabel for="txtTime" value="Time: " />
+					<p:inputText id="txtTime" required="true" maxlength="45"
+						value="#{travelPlanController.travelplan.time}" />
+
+				</p:panelGrid>
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</body>
+</html>

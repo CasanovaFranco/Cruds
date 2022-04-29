@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+
+	<ui:composition template="/WEB-INF/templates/master.xhtml">
+		<ui:define name="content">
+			<h:form id="frm">
+			
+			    <p:growl id="men"/>			    
+			    
+			    <p:toolbar>
+			    	<f:facet name="right">
+			    		<p:commandButton value="Tarjeta" icon="ui-icon-cart"    	
+			    		 action="#{cardController.newCard()}"
+			    		 ajax="false"
+			    		/>
+			    		<p:commandButton value="Editar" icon="ui-icon-pencil"
+			    		action="#{cardController.editCard()}"
+			    		ajax="false"
+			    		/>
+			    		
+			    		<p:commandButton value="Eliminar" icon="ui-icon-trash"
+			    		action="#{cardController.deleteCard()}"
+			    		ajax="false"
+			    		/>
+			    	</f:facet>			       
+			    
+			    </p:toolbar>		    
+			
+			
+				<p:dataTable id="datTabCards"
+					emptyMessage="No existen tarjetas registrados"
+					value="#{cardController.cards}" var="card"
+					rowKey="#{card.id}" selectionMode="single"
+					selection="#{cardController.cardSelected}"
+					paginator="true"
+					rows="10">
+
+
+					<p:column headerText="Id">
+						<p:outputLabel value="#{card.id}" />
+					</p:column>
+					<p:column headerText="numero">
+						<p:outputLabel value="#{card.number}" />
+					</p:column>
+					<p:column headerText="Propietario">
+						<p:outputLabel value="#{card.owner}" />
+					</p:column>
+					<p:column headerText="Plan">
+						<p:outputLabel value="#{card.travelplan.name}" />
+					</p:column>
+					<p:column headerText="Precio">
+						<p:outputLabel value="#{card.travelplan.unitPrice}" />
+					</p:column>
+					<p:column headerText="MetodoPago">
+						<p:outputLabel value="#{card.method}" />
+					</p:column>
+					
+					
+					
+					
+
+				</p:dataTable>
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</body>
+</html>
