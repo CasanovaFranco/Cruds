@@ -28,17 +28,5 @@ public class AffiliateRepository implements Serializable {
 		return affiliates;
 	}
 	
-	
-	
-	
-	
-	
-	
-	public void delete(Affiliate affiliate) throws Exception{
-		em.remove(affiliate);	
 		
-		
-		
-		
-	}
 }

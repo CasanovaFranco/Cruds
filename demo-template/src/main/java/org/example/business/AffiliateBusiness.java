@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.transaction.Transactional;
 
 import org.example.entities.Affiliate;
 import org.example.repository.AffiliateRepository;
@@ -24,12 +23,6 @@ public class AffiliateBusiness implements Serializable {
 	}
 	
 	
-	
-	
-	
-	@Transactional
-	public void delete(Affiliate affiliate) throws Exception{
-		affiliateRepository.delete(affiliate);
-	}
+
 
 }
