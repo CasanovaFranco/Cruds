@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+
+	<ui:composition template="/WEB-INF/templates/master.xhtml">
+		<ui:define name="content">
+			<h:form id="frm">
+
+				<p:growl id="men" />
+
+				<p:toolbar>
+					<f:facet name="right">
+						<p:commandButton value="Añadir Paquete de viaje" icon="ui-icon-newwin"
+							action="#{travelPlanController.newTravelPlan()}" ajax="false" />
+							
+						<p:commandButton value="Modificar" icon="ui-icon-pencil"
+							action="#{travelPlanController.editTravelPlan()}" ajax="false" />
+							
+						<p:commandButton value="Eliminar" icon="ui-icon-trash"
+			    		action="#{travelPlanController.deletePlanTravel()}" ajax="false"/>
+					
+					</f:facet>
+				</p:toolbar>
+
+
+				<p:dataTable id="datTabTravelPlans"
+					emptyMessage="No existen planes de viaje registrados"
+					value="#{travelPlanController.travelplans}" var="travelplan"
+					rowKey="#{travelplan.id}" selectionMode="single"
+					selection="#{travelPlanController.travelplanSelected}"
+					paginator="true" rows="10">
+					
+					<p:column headerText="Id">
+						<p:outputLabel value="#{travelplan.id}" />
+					</p:column>
+					
+					<p:column headerText="Afiliado">
+						<p:outputLabel value="#{travelplan.affiliate.companyname}" />
+					</p:column>
+
+					<p:column headerText="Nombre">
+						<p:outputLabel value="#{travelplan.name}" />
+					</p:column>
+					
+					<p:column headerText="Descripcion">
+						<p:outputLabel value="#{travelplan.description}" />
+					</p:column>
+					
+					<p:column headerText="Tiempo Estadia">
+						<p:outputLabel value="#{travelplan.time}" />
+					</p:column>
+
+					<p:column headerText="Precio Unitario">
+						<p:outputLabel value="#{travelplan.unitPrice}" />
+					</p:column>
+
+					<p:column headerText="Unidades en Stock">
+						<p:outputLabel value="#{travelplan.untisStock}" />
+					</p:column>
+
+
+				</p:dataTable>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</body>
+</html>

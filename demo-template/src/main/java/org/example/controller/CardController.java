@@ -10,8 +10,10 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.example.business.CardBusiness;
+import org.example.business.MethodBusiness;
 import org.example.business.TravelPlanBusiness;
 import org.example.entities.Card;
+import org.example.entities.Method;
 import org.example.entities.TravelPlan;
 import org.example.util.Message;
 import org.primefaces.event.SelectEvent;
@@ -27,6 +29,9 @@ public class CardController implements Serializable {
 
 	@Inject
 	private TravelPlanBusiness travelplanbusiness;
+	
+	@Inject
+	private MethodBusiness methodBusiness;
 
 	private Card card;
 	private Card cardSelected;
@@ -34,6 +39,11 @@ public class CardController implements Serializable {
 
 	private TravelPlan travelplan;
 	private List<TravelPlan> travelplans;
+	
+	private Method method;
+	private List<Method> methods;
+	
+	
 
 	private String filterName;
 
@@ -48,6 +58,9 @@ public class CardController implements Serializable {
 		travelplans = new ArrayList<>();
 
 		getAllCards();
+		getAllTravelPlans();
+		getAllMethods();
+		
 	}
 
 	public void getAllCards() {
@@ -57,11 +70,27 @@ public class CardController implements Serializable {
 
 		}
 	}
+	
+	public void getAllTravelPlans() {
+		try {
+			this.travelplans = travelplanbusiness.getAll();
+		} catch (Exception e) {
+
+		}
+	}
+	
+	public void getAllMethods() {
+		try {
+			this.methods = methodBusiness.getAllMethod();
+		} catch (Exception e) {
+
+		}
+	}
 
 	public String newCard() {
 		try {
-			this.travelplans = travelplanbusiness.getAll();
-			
+			getAllTravelPlans();
+			getAllMethods();
 			this.resetForm();
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -76,11 +105,13 @@ public class CardController implements Serializable {
 		try {
 			if (card.getId() != null) {// update
 				card.setTravelplan(travelplan);
+				card.setMethod(method);
 				cardBusiness.update(card);
 				Message.messageInfo("Registro actualizado exitosamente");
 
 			} else {// save
 				card.setTravelplan(travelplan);
+				card.setMethod(method);
 				cardBusiness.insert(card);
 				Message.messageInfo("Registro guardado exitosamente");
 			}
@@ -153,13 +184,29 @@ public class CardController implements Serializable {
 			// TODO: handle exception
 		}
 	}
+	
+	
 
 	public String listCard() {
 		return "list.xhtml";
 	}
 
 	
-	
+	public Method getMethod() {
+		return method;
+	}
+
+	public void setMethod(Method method) {
+		this.method = method;
+	}
+
+	public List<Method> getMethods() {
+		return methods;
+	}
+
+	public void setMethods(List<Method> methods) {
+		this.methods = methods;
+	}
 
 	public Card getCard() {
 		return card;

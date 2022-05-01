@@ -20,11 +20,7 @@
 			    		 action="#{cardController.newCard()}"
 			    		 ajax="false"
 			    		/>
-			    		<p:commandButton value="Editar" icon="ui-icon-pencil"
-			    		action="#{cardController.editCard()}"
-			    		ajax="false"
-			    		/>
-			    		
+
 			    		<p:commandButton value="Eliminar" icon="ui-icon-trash"
 			    		action="#{cardController.deleteCard()}"
 			    		ajax="false"
@@ -50,15 +46,9 @@
 					</p:column>
 					<p:column headerText="Propietario">
 						<p:outputLabel value="#{card.owner}" />
-					</p:column>
-					<p:column headerText="Plan">
-						<p:outputLabel value="#{card.travelplan.name}" />
-					</p:column>
-					<p:column headerText="Precio">
-						<p:outputLabel value="#{card.travelplan.unitPrice}" />
-					</p:column>
+					</p:column>				
 					<p:column headerText="Metodo Pago">
-						<p:outputLabel value="#{card.method}" />
+						<p:outputLabel value="#{card.method.name}" />
 					</p:column>
 					
 					

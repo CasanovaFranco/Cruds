@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+
+	<ui:composition template="/WEB-INF/templates/master.xhtml">
+		<ui:define name="content">
+			<h:form id="frm">
+				<p:growl id="men" />
+
+				<p:toolbar>
+					<f:facet name="right">
+
+						<p:commandButton value="Guardar" icon="ui-icon-mail-open"
+							action="#{cardController.saveCard()}" ajax="false" />
+
+						<p:commandButton value="Regresar" icon="ui-icon-arrowrefresh-1-w"
+							action="#{cardController.listCard()}" immediate="true"
+							ajax="false" />
+
+					</f:facet>
+				</p:toolbar>
+
+
+				<p:panelGrid id="panGridCard" columns="2" style="width:100%">
+
+					<p:outputLabel value="Tarjeta:" for="txtNumber" />
+					<p:inputText id="txtNumber" required="true" maxlength="45"
+						value="#{cardController.card.number}" />
+
+					<p:outputLabel value="Propietario:" for="txtOwner" />
+					<p:inputText id="txtOwner" required="true" maxlength="45"
+						value="#{cardController.card.owner}" />
+
+					<p:outputLabel value="Cvv:" for="txtCvv" />
+					<p:inputText id="txtCvv" required="true" maxlength="45"
+						value="#{cardController.card.cvv}" />
+
+					<p:outputLabel value="Vencimiento:" for="txtExpiration" />
+					<p:inputText id="txtExpiration" required="true" maxlength="45"
+						value="#{cardController.card.expiration}" />
+
+					<p:outputLabel value="Plan:" for="cboPlanTravel" />
+					<p:selectOneMenu id="cboPlanTravel" required="true" effect="drop"
+						value="#{cardController.travelplan}"
+						converter="omnifaces.SelectItemsConverter">
+						<f:selectItem itemLabel="Seleccione una opción"
+							noSelectionOption="true" itemValue="" />
+						<f:selectItems value="#{cardController.travelplans}"
+							var="travelplan" itemLabel="#{travelplan.name}"
+							itemValue="#{travelplan}" />
+					</p:selectOneMenu>
+
+					<p:outputLabel value="Metodo:" for="cboMethod" />
+					<p:selectOneMenu id="cboMethod" required="true" effect="drop"
+						value="#{cardController.method}"
+						converter="omnifaces.SelectItemsConverter">
+						<f:selectItem itemLabel="Seleccione una opción"
+							noSelectionOption="true" itemValue="" />
+						<f:selectItems value="#{cardController.methods}" var="method"
+							itemLabel="#{method.name}" itemValue="#{method}" />
+					</p:selectOneMenu>
+
+				</p:panelGrid>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+
+</body>
+</html>

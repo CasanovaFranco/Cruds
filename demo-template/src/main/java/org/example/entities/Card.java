@@ -18,12 +18,15 @@ public class Card {
 	private String number;
 	private String cvv;
 	private String owner;
-	private String method;
 	private String expiration;
 
 	@ManyToOne
 	@JoinColumn(name = "travelplan_id", nullable = false)
 	private TravelPlan travelplan;
+	
+	@ManyToOne
+	@JoinColumn(name = "method_id", nullable = false)
+	private Method method;
 
 
 	public Long getId() {
@@ -66,16 +69,6 @@ public class Card {
 	}
 
 
-	public String getMethod() {
-		return method;
-	}
-
-
-	public void setMethod(String method) {
-		this.method = method;
-	}
-
-
 	public String getExpiration() {
 		return expiration;
 	}
@@ -93,6 +86,16 @@ public class Card {
 
 	public void setTravelplan(TravelPlan travelplan) {
 		this.travelplan = travelplan;
+	}
+
+
+	public Method getMethod() {
+		return method;
+	}
+
+
+	public void setMethod(Method method) {
+		this.method = method;
 	}
 	
 	

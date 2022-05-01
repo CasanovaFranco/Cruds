@@ -46,11 +46,6 @@
 					<p:inputText id="txtExpiration" required="true" maxlength="45"
 						value="#{cardController.card.expiration}"/>
 						
-					<p:outputLabel value="Metodo:" for="txtMethod" />
-					<p:inputText id="txtMethod" required="true" maxlength="45"
-						value="#{cardController.card.method}"/>
-					
-						
 					<p:outputLabel value="Plan:" for="cboPlanTravel" />
 					<p:selectOneMenu id="cboPlanTravel" required="true" effect="drop"
 						value="#{cardController.travelplan}"
@@ -60,8 +55,18 @@
 						<f:selectItems value="#{cardController.travelplans}"   
 							var="travelplan" itemLabel="#{travelplan.name}"
 							itemValue="#{travelplan}" />
-				
 					</p:selectOneMenu>						
+							
+					<p:outputLabel value="Metodo de pago:" for="cboMethod" />
+					<p:selectOneMenu id="cboMethod" required="true" effect="drop"
+						value="#{cardController.method}"
+						converter="omnifaces.SelectItemsConverter">
+						<f:selectItem itemLabel="Seleccione una opción"
+							noSelectionOption="true" itemValue="" />
+						<f:selectItems value="#{cardController.methods}"   
+							var="method" itemLabel="#{method.name}"
+							itemValue="#{method}" />
+				</p:selectOneMenu>	
 				</p:panelGrid>						
 			</h:form>
 		</ui:define>
