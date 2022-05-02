@@ -5,7 +5,9 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 
-<h:head></h:head>
+<h:head>
+<h1>> Historial de pagos</h1>
+</h:head>
 <body>
 
 	<ui:composition template="/WEB-INF/templates/master.xhtml">
@@ -15,8 +17,13 @@
 			    <p:growl id="men"/>			    
 			    
 			    <p:toolbar>
+			  
+			   	   <f:facet name="left">
+			    		<h:outputLabel for="name" value="HISTORIAL DE PAGOS"/>
+			 	   </f:facet>		
+			    	
 			    	<f:facet name="right">
-			    		<p:commandButton value="Tarjeta" icon="ui-icon-cart"    	
+			    		<p:commandButton value="Pagar" icon="ui-icon-cart"    	
 			    		 action="#{cardController.newCard()}"
 			    		 ajax="false"
 			    		/>

@@ -13,8 +13,13 @@
 			<h:form id="frm">
 
 				<p:growl id="men" />
-
+                   
 				<p:toolbar>
+				
+				<f:facet name="left">
+			    		<h:outputLabel for="name" value="MIS PAQUETES"/>
+			 	   </f:facet>	
+			 	   	
 					<f:facet name="right">
 						<p:commandButton value="Añadir Paquete de viaje" icon="ui-icon-newwin"
 							action="#{travelPlanController.newTravelPlan()}" ajax="false" />

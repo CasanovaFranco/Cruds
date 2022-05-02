@@ -32,6 +32,7 @@ public class CardController implements Serializable {
 	
 	@Inject
 	private MethodBusiness methodBusiness;
+	
 
 	private Card card;
 	private Card cardSelected;
@@ -43,7 +44,7 @@ public class CardController implements Serializable {
 	private Method method;
 	private List<Method> methods;
 	
-	
+
 
 	private String filterName;
 
@@ -56,11 +57,12 @@ public class CardController implements Serializable {
 
 		travelplan = new TravelPlan();
 		travelplans = new ArrayList<>();
+		
 
 		getAllCards();
 		getAllTravelPlans();
 		getAllMethods();
-		
+
 	}
 
 	public void getAllCards() {
@@ -70,6 +72,7 @@ public class CardController implements Serializable {
 
 		}
 	}
+	
 	
 	public void getAllTravelPlans() {
 		try {
@@ -86,6 +89,8 @@ public class CardController implements Serializable {
 
 		}
 	}
+	
+	
 
 	public String newCard() {
 		try {
@@ -124,6 +129,8 @@ public class CardController implements Serializable {
 
 		return view;
 	}
+	
+
 
 	public String editCard() {
 		String view = "";

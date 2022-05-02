@@ -97,7 +97,8 @@ public class Card {
 	public void setMethod(Method method) {
 		this.method = method;
 	}
-	
+
+
 	
 }
 	
